@@ -1,0 +1,56 @@
+{
+    "23001016035@jcboseust.ac.in": {
+        "name": "Mahima",
+        "email": "23001016035@jcboseust.ac.in",
+        "roll": "23001016035",
+        "subjects": [
+            "AI",
+            "OS",
+            "DAA",
+            "COI",
+            "Soft Computing",
+            "UHV",
+            "Biology",
+            "OS Lab",
+            "Soft Computing Lab",
+            "COA"
+        ],
+        "created_at": "2025-11-18T01:04:35.871681"
+    },
+    "3001016019@jcboseust.ac.in": {
+        "name": "Deeksha",
+        "email": "3001016019@jcboseust.ac.in",
+        "roll": "23001016019",
+        "subjects": [
+            "AI",
+            "OS",
+            "DAA",
+            "COA",
+            "COI",
+            "Soft Computing",
+            "UHV",
+            "Biology",
+            "OS Lab",
+            "Soft Computing Lab"
+        ],
+        "created_at": "2025-11-18T01:20:59.485792"
+    },
+    "23001016019@jcboseust.ac.in": {
+        "name": "Deeksha",
+        "email": "23001016019@jcboseust.ac.in",
+        "roll": "23001016019",
+        "subjects": [
+            "AI",
+            "DAA",
+            "OS",
+            "COA",
+            "Soft Computing",
+            "UHV",
+            "COI",
+            "Biology",
+            "OS Lab",
+            "Soft Computing Lab"
+        ],
+        "created_at": "2025-11-19T12:44:33.512139"
+    }
+}

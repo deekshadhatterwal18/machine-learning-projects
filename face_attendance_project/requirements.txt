@@ -1,0 +1,9 @@
+streamlit
+opencv-python
+face-recognition
+face-recognition-models
+numpy<2
+pandas
+pillow
+qrcode
+streamlit-js-eval
