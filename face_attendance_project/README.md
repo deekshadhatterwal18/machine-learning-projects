@@ -1,35 +1,40 @@
 # AI-Based Smart Face Recognition Attendance System
 
-An intelligent attendance system that uses **Face Recognition, QR Token Authentication, and Geolocation Verification** to automate and secure the attendance process.
+An intelligent attendance system that uses **Face Recognition, QR Token Authentication, and Geolocation Verification** to automate the attendance process and prevent proxy attendance.
 
-This project eliminates problems like **proxy attendance, manual errors, and inefficient record keeping** by using Artificial Intelligence and Computer Vision.
+The system verifies student identity using **computer vision and machine learning** and provides **separate dashboards for students, teachers, and coordinators**.
 
 ---
 
-## Project Overview
+# Project Overview
 
-Traditional attendance systems rely on manual methods which are prone to errors and misuse. This project introduces a **Smart Face Recognition–Based Attendance System** that automatically verifies student attendance using multiple layers of authentication.
+Traditional attendance systems rely on manual roll calls which are inefficient and allow proxy attendance.  
+This project introduces a **Smart Face Recognition Attendance System** that automatically verifies student attendance using multiple security layers.
 
-The system verifies attendance using:
+The system performs verification using:
 
-1. QR Token Verification
+1. QR Token Authentication
 2. Live Face Recognition
 3. Geolocation Validation
 
-The application is developed using **Python, OpenCV, and Streamlit**, and includes **separate dashboards for students, teachers, and coordinators**.
+This ensures **secure and reliable attendance recording**.
 
 ---
 
-## Key Features
+# Key Features
 
 - Face recognition based attendance system
 - QR token authentication for attendance sessions
 - Live webcam-based face verification
-- Geolocation validation using browser GPS
+- Geolocation validation using GPS
 - Multi-role system
-  - Student Panel
-  - Teacher Panel
-  - Coordinator Panel
+
+User panels include:
+- Student Panel
+- Teacher Panel
+- Coordinator Panel
+
+Additional features:
 - Attendance analytics dashboard
 - Secure token generation using SHA-256
 - CSV and JSON based data storage
@@ -37,12 +42,12 @@ The application is developed using **Python, OpenCV, and Streamlit**, and includ
 
 ---
 
-## Technologies Used
+# Technologies Used
 
-### Programming Language
-- Python
+## Programming Language
+Python
 
-### Libraries
+## Libraries
 - OpenCV
 - NumPy
 - Pandas
@@ -52,142 +57,120 @@ The application is developed using **Python, OpenCV, and Streamlit**, and includ
 - hashlib
 - pickle
 
-### Development Tools
+## Tools
 - VS Code / PyCharm
 - Jupyter Notebook
-- Webcam for face input
+- Webcam for facial input
 
 ---
 
-## System Architecture
+# System Architecture
 
 The system verifies attendance using **three layers of authentication**.
 
-### Layer 1 – QR Token Verification
+## 1. QR Token Verification
 - Teacher starts an attendance session
-- A secure token is generated using timestamp and secret key
-- Token is displayed as a QR code
+- A secure token is generated
+- Token is converted into a QR code
 - Students must enter the correct token
 
-### Layer 2 – Live Face Verification
+## 2. Live Face Verification
 - Webcam captures student image
 - Face encoding is generated
 - Encoding is compared with stored encodings
-- Attendance marked only if the face matches
+- Attendance marked only if face matches
 
-### Layer 3 – Geolocation Verification
+## 3. Geolocation Verification
 - Browser GPS coordinates are fetched
 - Distance from classroom location is calculated
-- Attendance allowed only if the student is within **150 meters**
+- Attendance allowed only if student is within **150 meters**
 
 ---
 
-## Methodology
+# Student Face Image Dataset
 
-### 1. Face Data Collection
-- 2–5 images collected for each student
-- Images stored in `/images/student_name/`
-- Preprocessed using OpenCV
+For the system to recognize students, their facial images must be stored inside the **images folder**.
 
-### 2. Face Encoding
-- Uses **dlib 128-D face embeddings**
-- Encodings stored in `encodings.pkl`
-- Euclidean distance used for comparison
+Each student must have a **separate folder containing their images**.
 
-### 3. Attendance Verification
-Attendance is recorded only when:
-
-- QR token is correct
-- Face recognition matches
-- Location verification passes
-
-### 4. Data Storage
-
-Attendance records stored as CSV files:
-
-```
-attendance_records/subject.csv
-```
-
-Student information stored in:
-
-```
-students.json
-```
-
----
-
-## User Panels
-
-### Teacher Panel
-- Start attendance session
-- Generate QR token
-- Register or update students
-- View attendance reports
-
-### Student Panel
-- Scan QR token
-- Live face verification
-- Mark attendance
-- View attendance dashboard
-
-### Coordinator Panel
-- Monitor attendance statistics
-- View subject-wise analytics
-- Manage records
-
----
-
-## Application Screenshots
-
-To maintain a **clean and professional repository**, screenshots are stored inside a folder called **screenshots**.
-
-Project maintainers or contributors should add screenshots of the application interface inside this folder.
-
-Example screenshots to include:
-
-- Teacher Panel
-- Student Face Verification
-- Student Dashboard
-- Coordinator Dashboard
-- QR Attendance Session
-
-Example folder structure:
+## Folder Structure
 
 ```
 face_attendance_project
 │
-├── app.py
-├── train_faces.py
-├── utils.py
-├── requirements.txt
-├── students.json
-│
-├── attendance_records
-│
 ├── images
+│   ├── student1
+│   │   ├── img1.jpg
+│   │   ├── img2.jpg
+│   │   └── img3.jpg
+│   │
+│   ├── student2
+│   │   ├── img1.jpg
+│   │   ├── img2.jpg
+│   │   └── img3.jpg
 │
-└── screenshots
-    ├── teacher_panel.png
-    ├── register_student.png
-    ├── student_verification.png
-    ├── student_dashboard.png
-    └── coordinator_dashboard.png
 ```
 
-To display screenshots in the README, add images using:
+### Important Guidelines
+
+- Each student must have **their own folder**
+- Folder name should match the **student name or ID**
+- Each folder should contain **2–5 face images**
+- Images should clearly show the student's face
+- Images must be stored in **JPG or PNG format**
+
+Example:
 
 ```
-![Teacher Panel](screenshots/teacher_panel.png)
-![Student Verification](screenshots/student_verification.png)
-![Student Dashboard](screenshots/student_dashboard.png)
+images/
+   ├── Deeksha
+   │   ├── img1.jpg
+   │   ├── img2.jpg
+   │   └── img3.jpg
 ```
 
-Users should replace the image names with their own screenshots.
+These images are used to generate **face encodings during model training**.
 
 ---
 
-## Installation
+# Application Screenshots
+
+## Teacher Panel
+![Teacher Panel](screenshots/teacher_panel.png)
+
+Teacher can start attendance sessions, generate QR tokens, and manage students.
+
+---
+
+## Register Student
+![Register Student](screenshots/register_student.png)
+
+Teachers can register new students and update their details.
+
+---
+
+## Live Face Verification
+![Face Verification](screenshots/student_verification.png)
+
+Students verify their identity using real-time face recognition.
+
+---
+
+## Student Dashboard
+![Student Dashboard](screenshots/student_dashboard.png)
+
+Students can check their attendance records and subject-wise statistics.
+
+---
+
+## Coordinator Dashboard
+![Coordinator Dashboard](screenshots/coordinator_dashboard.png)
+
+Coordinator can monitor attendance analytics and overall statistics.
+
+---
+
+# Installation
 
 Clone the repository
 
@@ -201,13 +184,13 @@ Navigate to project directory
 cd face-attendance-system
 ```
 
-Install required dependencies
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run the Streamlit application
+Run the application
 
 ```bash
 streamlit run app.py
@@ -215,7 +198,37 @@ streamlit run app.py
 
 ---
 
-## Applications
+# Project Structure
+
+```
+face_attendance_project
+│
+├── app.py
+├── train_faces.py
+├── utils.py
+├── requirements.txt
+├── students.json
+│
+├── encoded_faces
+│   └── encodings.pkl
+│
+├── images
+│   └── student folders
+│
+├── attendance_records
+│   └── subject.csv
+│
+└── screenshots
+    ├── teacher_panel.png
+    ├── register_student.png
+    ├── student_verification.png
+    ├── student_dashboard.png
+    └── coordinator_dashboard.png
+```
+
+---
+
+# Applications
 
 This system can be used in:
 
@@ -223,22 +236,21 @@ This system can be used in:
 - Corporate Offices
 - Examination Centers
 - Hostels and Mess Entry Systems
-- Workshops and Seminar Attendance
+- Workshops and Seminars
 
 ---
 
-## Future Improvements
+# Future Improvements
 
 - Integration with College ERP systems
-- Voice + face recognition hybrid authentication
-- AI-based anti-spoofing detection
 - Mobile application for students
+- AI-based anti-spoofing detection
 - Cloud storage for large datasets
 - Low-light face recognition improvements
 
 ---
 
-## Author
+# Author
 
 **Deeksha Dhatterwal**
 
@@ -246,4 +258,4 @@ B.Tech Computer Engineering (Data Science)
 
 ---
 
-If you found this project useful, consider giving it a **star ⭐**.
+If you found this project useful, consider giving it a **star ⭐**
